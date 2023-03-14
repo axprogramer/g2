@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comic+Neue&amp;display=swap">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/untitled.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"/>
+    <link rel="shortcut icon" type="image/png" href="./pic/grade_5A.png">
+
+    <title>Student Information G2A</title>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid navHome">
+          <a class="navbar-brand" href="../index.html">SM Sys</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item ">
+                    <a class="nav-link" href="./ReportGrade5A.html">Grade 2A</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./ReportGrade5B.html">Grade 2B</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" aria-current="page" href="./Report5aG.html">G2A Info</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./Report5bG.html">G2B Info</a>
+                  </li>
+    
+                </ul>
+
+          </div>
+        </div>
+      </nav>  
+      <div class="myAddBtn">
+        <h1 style="padding-top: 25px;">Student Information<br>GRADE 2A</h1>
+        <div style="padding-top: 25px;">
+    </div>
+    <button class="button-90"  type="button" data-toggle="modal" data-target="#exampleModal" onclick="NewBox()">(+) New<i class="fa fa-address-card" style="padding-left: 5px;"></i></button>
+    <button class="button-90"  type="button" onclick="myPrintG5A()">Print<i class="bi bi-printer-fill" style="padding-left: 5px;"></i></button>
+    <button class="button-90"  type="button" onclick="mySaveG5A()">Save<i class="bi bi-cloud-download-fill" style="padding-left: 5px;"></i></button>
+
+
+    </div>
+    <div class="mySearch5a">
+        <input type="text" id="myInputEn" class="mySearch" placeholder="Search English" onkeyup="tableSearchEng()">
+        <input type="text" id="myInputKh" class="mySearch" placeholder="Search Khmer" onkeyup="tableSearchKh()">
+        <button id="Eng" class="button-91" onclick="clickEng()"><span class="fi fi-gb"></span></button>
+        <button id="Kh" class="button-91" onclick="clickKh()"><span class="fi fi-kh"></span></button>
+
+    </div> 
+    <!--Table Show Data-->
+    <div id="myStinfo5a"> 
+        <div class="table-responsive" style="padding: 20px;">
+            <table class="table-responsive table-bordered table-sortable border-secondary text-center" id="mySaveinfo5a" data-filter-control="true" data-show-search-clear-button="true">
+                <thead id="myShowingTA">
+                    <th>N0</th>
+                        <th class="name">Full Name</th>
+                        <th class="name">Khmer Name</th>
+                        <th>ID</th>
+                        <th>Sex</th>
+                        <th>Grade</th>
+                        <th>Address</th>
+                        <th>Phone 1</th>
+                        <th>Phone 2</th>
+                        <th>Facebook 1</th>
+                        <th>Facebook 2</th>
+                        <th>Email</th>
+                        <th>Comment</th>
+
+                </thead>
+                <tbody id="tbody5A">
+                </tbody>
+            </table>
+        </div>
+    </div>
+        <!--Modal adds new students-->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content button-85">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle"><i class="bi bi-person-hearts" style="padding-right: 10px;"></i>Form</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" id="myBtnAddClose"></button>
+        </div>
+        <div class="modal-body">
+            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                <div class="PicContener">
+                    <img src="" class="StPic" id="imgView">
+                </div>
+                <div class="control-group">
+                    <input class="form-control " type="text" id="picLink" onclick="myPicAdd()" placeholder="Link Picture" style="font-size: 14px;font-weight: bold;color: #ffffff; background-color: rgb(31, 29, 29);">
+                </div>
+                <div class="control-group">
+                    <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="text" id="myName" required="" placeholder="Name" style="font-size: 14px;font-weight: bold;color: #ffffff; height: 45px;background-color: rgb(31, 29, 29);"><label class="form-label" style="color: #ffffff;font-size: 14px;font-family: 'Comic Neue', serif;">Full Name</label><small class="form-text text-danger help-block"></small></div>
+                    <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="text" id="myKhname" required="" placeholder="Khname" style="font-size: 14px;font-weight: bold;color: #ffffff; height: 45px;background-color: rgb(31, 29, 29);"><label class="form-label" style="color: #ffffff;font-size: 14px;font-family: 'Comic Neue', serif;">ឈ្មោះខ្មែរ</label><small class="form-text text-danger help-block"></small></div>
+
+                </div>
+                <div class="row" style="padding-top: 15px;">
+                    <div class="col">
+                        <div class="control-group">
+                            <div class="mb-0 form-floating pb-2 myfix"><input class="form-control" type="text" id="myID" required="" placeholder="ID" style="font-size: 14px;font-weight: bold;color: #ffffff; height: 45px;background-color: rgb(31, 29, 29);"><label class="form-label" style="font-size: 14px;color: #ffffff;font-family: 'Comic Neue', serif;">ID</label><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="control-group" style="text-align: center;"><select class="form-select" id="mySex" style="font-size: 14px;font-weight: bold;color: #ffffff; height: 45px;background-color: rgb(31, 29, 29);">
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                            </select></div>
+                    </div>
+                    <div class="col">
+                      <div class="control-group" style="text-align: center;"><select class="form-select" id="myGrade" style="font-size: 14px;font-weight: bold;color: #ffffff; height: 45px;background-color: rgb(31, 29, 29);">
+                              <option value="5A">2A</option>
+                              <option value="5B">2B</option>
+                          </select></div>
+                  </div>
+                  <div class="control-group">
+                    <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="text" id="myAddress" required=""  style="font-size: 14px;font-weight: bold;color: #ffffff; height: 45px;background-color: rgb(31, 29, 29);"><label class="form-label" style="color: #ffffff;font-size: 14px;font-family: 'Comic Neue', serif;">Address</label><small class="form-text text-danger help-block"></small></div>
+                    <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="text" name="phone" id="myPhone1" required="" style="font-size: 14px;font-weight: bold;color: #ffffff; height: 45px;background-color: rgb(31, 29, 29);"><label class="form-label" style="color: #ffffff;font-size: 14px;font-family: 'Comic Neue', serif;">Phone Number 1</label><small class="form-text text-danger help-block"></small></div>
+                    <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="text" name="phone" id="myPhone2" required="" style="font-size: 14px;font-weight: bold;color: #ffffff; height: 45px;background-color: rgb(31, 29, 29);"><label class="form-label" style="color: #ffffff;font-size: 14px;font-family: 'Comic Neue', serif;">Phone Number 2</label><small class="form-text text-danger help-block"></small></div>
+                    <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="text" name="facebook" id="myFacebook1" required="" style="font-size: 14px;font-weight: bold;color: #ffffff; height: 45px;background-color: rgb(31, 29, 29);"><label class="form-label" style="color: #ffffff;font-size: 14px;font-family: 'Comic Neue', serif;">Facebook 1</label><small class="form-text text-danger help-block"></small></div>
+                    <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="text" name="facebook" id="myFacebook2" required="" style="font-size: 14px;font-weight: bold;color: #ffffff; height: 45px;background-color: rgb(31, 29, 29);"><label class="form-label" style="color: #ffffff;font-size: 14px;font-family: 'Comic Neue', serif;">Facebook 2</label><small class="form-text text-danger help-block"></small></div>
+                    <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="email" name="email" id="myEmail" required="" style="font-size: 14px;font-weight: bold;color: #ffffff; height: 45px;background-color: rgb(31, 29, 29);"><label class="form-label" style="color: #ffffff;font-size: 14px;font-family: 'Comic Neue', serif;">E-mail</label><small class="form-text text-danger help-block"></small></div>
+                    <div class="mb-0 form-floating controls pb-2"><textarea cols="10" rows="10" class="form-control" type="text" name="Comment1" id="myComment" required="" style="font-size: 14px;font-weight: bold;color: #ffffff; height: auto;background-color: rgb(31, 29, 29);"></textarea><label class="form-label" style="color: #ffffff;font-size: 14px;font-family: 'Comic Neue', serif;">Comment</label><small class="form-text text-danger help-block"></small></div>
+                </div>
+
+                  <div class="btnCon">
+                    <button id="mySubmit" onclick="AddStd()" class="button-88" role="button" type="submit">Submit<i class="bi bi-cloud-download-fill" style="padding-left: 5px;"></i></button>
+                    <button id="myUpdate" onclick="UpStd()" class="button-88" role="button"name="update_data" >Update<i class="bi bi-arrow-bar-up" style="padding-left: 5px;"></i></button>
+                    <button id="myDele" onclick="DelStd()" class="button-88" role="button"name="clear_data" >Delete<i class="bi bi-calendar-x-fill" style="padding-left: 5px;"></i></button>
+                </div>
+        
+                </div>
+
+            </form>  
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/jquery3.3.1.min.js"></script>
+  <script src="../assets/js/xlsx.full.min.js"></script>
+    <script src="../assets/js/firebase-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="../assets/js/freelancer.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>        
+    <script src="../assets/js/firebase-auth.js"></script>
+<script src="../assets/js/firebase-database.js"></script>
+<script src="../assets/js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="./asset/js/stInfo5A.js"></script>
+<script src="./asset/js/search5a.js"></script>
+<script src="./print/grade5A/stdinfo5a.js"></script>
+</body>
+</html>
