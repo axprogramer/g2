@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comic+Neue&amp;display=swap">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
@@ -17,38 +19,43 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"/>
     <link rel="shortcut icon" type="image/png" href="./pic/grade_5A.png">
 
-    <title>Studeent Information G2B</title>
+    <title>Studeent Information G5B</title>
 
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid navHome">
-          <a class="navbar-brand" href="../index.html">SM Sys</a>
+          <a class="navbar-brand" href="../index.html"id="subtitle">SM Sys</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item ">
-                    <a class="nav-link" href="./ReportGrade5A.html">Grade 2A</a>
+                    <a class="nav-link" href="./ReportGrade5A.html">Grade 5A</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./ReportGrade5B.html">Grade 2B</a>
+                    <a class="nav-link" href="./ReportGrade5B.html">Grade 5B</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./Report5aG.html">G2A Info</a>
+                    <a class="nav-link" href="./Report5aG.html">G5A Info</a>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" aria-current="page" href="./Report5bG.html">G2B Info</a>
+                    <a class="nav-link" aria-current="page" href="./Report5bG.html">G5B Info</a>
                   </li>
-    
-                </ul>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1bGtbCYagxrgjZ_p6XlDj82H2pxkdB14i/edit?usp=sharing&ouid=102087249849553073620&rtpof=true&sd=true">G5A Report</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://docs.google.com/spreadsheets/d/174Iv7tLx8GFXNcFsYBUF3MB1WHGFBPC1/edit?usp=sharing&ouid=102087249849553073620&rtpof=true&sd=true">G5B Report</a>
+                  </li>
+                    </ul>
 
           </div>
         </div>
       </nav>  
       <div class="myAddBtn">
-        <h1 style="padding-top: 25px;">Student Information<br>GRADE 2B</h1>
+        <h1 style="padding-top: 25px;"id="subtitle"class="neonText">Student Information<br>GRADE 5B</h1>
         <div style="padding-top: 25px;">
     </div>
     <button class="button-90"  type="button" data-toggle="modal" data-target="#exampleModal" onclick="NewBox()">(+) New<i class="fa fa-address-card" style="padding-left: 5px;"></i></button>
@@ -66,7 +73,7 @@
     <!--Table Show Data-->
     <div id="myStinfo5b">
         <div class="table-responsive" style="padding: 20px;">
-            <table class="table-responsive table-bordered table-sortable border-secondary text-center" id="mySaveinfo5b" data-filter-control="true" data-show-search-clear-button="true">
+            <table class="freeze table-responsive table-bordered table-sortable border-secondary text-center" id="mySaveinfo5b" data-filter-control="true" data-show-search-clear-button="true">
                 <thead class="table-success border-secondary" id="myShowingTA">
                     <th style="width: 5vh;">N0</th>
                         <th class="name">Full Name</th>
@@ -124,8 +131,8 @@
                     </div>
                     <div class="col">
                       <div class="control-group" style="text-align: center;"><select class="form-select" id="myGrade" style="font-size: 14px;font-weight: bold;color: #ffffff; height: 45px;background-color: rgb(31, 29, 29);">
-                              <option value="5A">2A</option>
-                              <option value="5B">2B</option>
+                              <option value="5A">5A</option>
+                              <option value="5B">5B</option>
                           </select></div>
                   </div>
                   <div class="control-group">

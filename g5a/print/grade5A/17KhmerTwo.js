@@ -2,7 +2,7 @@
 function myPrintKhmer2(){
     document.getElementById('tbody17').innerHTML = "";
     stdNumber=0;
-    firebase.database().ref('2aAllData').once('value',
+    firebase.database().ref('5aAllData').once('value',
     function(AllRecordsPrint){
       AllRecordsPrint.forEach(
         function(CurrentRecord){

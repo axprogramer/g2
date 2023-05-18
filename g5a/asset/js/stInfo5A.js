@@ -10,7 +10,7 @@ const firebaseConfig = {
   
   firebase.initializeApp(firebaseConfig);
 
-  var my5aAll = firebase.database().ref('2aAllData');
+  var my5aAll = firebase.database().ref('5aAllData');
   function submitForm(e){
     e.preventDefault();
     var name = getElementVal('myName');
@@ -61,7 +61,7 @@ const saveData = (name,id,sex,grade,
 function selectAllData(){
   document.getElementById('tbody5A').innerHTML="";
   studentN0=0;
-  firebase.database().ref('2aAllData').once('value',
+  firebase.database().ref('5aAllData').once('value',
   function(AllRecords){
     AllRecords.forEach(
       function(CurrentRecord){
@@ -235,7 +235,7 @@ function NewBox(){
 }
 
 function AddStd(){
-  firebase.database().ref("2aAllData/"+Mid.value).set(
+  firebase.database().ref("5aAllData/"+Mid.value).set(
     {
       name: Mname.value,
       id: Mid.value,
@@ -257,7 +257,7 @@ function AddStd(){
 
 }
 function UpStd(){
-  firebase.database().ref("2aAllData/"+Mid.value).update(
+  firebase.database().ref("5aAllData/"+Mid.value).update(
     {
       name: Mname.value,
       id: Mid.value,
@@ -281,7 +281,7 @@ function UpStd(){
 }
 
 function DelStd(){
-  firebase.database().ref("2aAllData/"+Mid.value).remove().then(
+  firebase.database().ref("5aAllData/"+Mid.value).remove().then(
     function(){
       selectAllData();
       window.location.reload();
@@ -290,7 +290,7 @@ function DelStd(){
   )
 }
 function DelStdAll(){
-  firebase.database().ref("2aAllData").remove();
+  firebase.database().ref("5aAllData").remove();
 
       window.location.reload();
 }

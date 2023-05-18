@@ -10,7 +10,7 @@ const firebaseConfig = {
   
   firebase.initializeApp(firebaseConfig);
 
-  var my5aAll = firebase.database().ref('2aAllData');
+  var my5aAll = firebase.database().ref('5aAllData');
   function submitForm(e){
     e.preventDefault();
     var name = getElementVal('myName');
@@ -124,7 +124,7 @@ const firebaseConfig = {
     var myOy = getElementVal('myOy');
     //Khmer Name
     var myKh = getElementVal('myKhname');
-    window.location.reload();
+    // window.location.reload();
     saveData(name,id,sex,grade,speaking,writing,listening,
       reading,average,rank,speakingNov,writingNov,listeningNov,
       readingNov,averageNov,rankNOv,speakingDec,writingDec,listeningDec,
@@ -278,7 +278,9 @@ const saveData = (name,id,sex,grade,speaking,writing,listening,
 function selectAllData(){
   document.getElementById('tbody1').innerHTML="";
   studentN0=0;
-  firebase.database().ref('2aAllData').once('value',
+  studentN0Pop = 0;
+
+  firebase.database().ref('5aAllData').once('value',
   function(AllRecords){
     AllRecords.forEach(
       function(CurrentRecord){
@@ -407,13 +409,31 @@ function selectAllData(){
           my2SeRa,my2SeRme,my1SaY,my2SaY,myAaY,myKy,myMy,myOy,myKh,
           speakingjuly,writingjuly,listeningjuly,
           readingjuly,averagejuly,rankjuly);
+        addItemsToTablePop(name,id,sex,grade,speaking,writing,listening,
+          reading,average,rank,speakingNov,writingNov,listeningNov,
+          readingNov,averageNov,rankNOv,speakingDec,writingDec,listeningDec,
+          readingDec,averageDec,rankDec,speakingJan,writingJan,listeningJan,
+          readingJan,averageJan,rankJan,speakingfeb,writingfeb,
+          listeningfeb,readingfeb,averagefeb,rankfeb,myNov,myDec,myJan,myFeb,
+          my1Score4,my1Se,my1Sa,my1SR,my1SM,my1SeR,my1MonR,my1SaR,
+          my1SeRa,my1SeRme,speakingmar,writingmar,listeningmar,
+          readingmar,averagemar,rankmar,speakingma,writingma,listeningma,
+          readingma,averagema,rankma,speakingjun,writingjun,listeningjun,
+          readingjun,averagejun,rankjun,myMar,myMay,myJune,myJuly,my2Score4,
+          my2Se,my2Sa,my2SR,my2SM,my2SeR,my2MonR,my2SaR,
+          my2SeRa,my2SeRme,my1SaY,my2SaY,myAaY,myKy,myMy,myOy,myKh,
+          speakingjuly,writingjuly,listeningjuly,
+          readingjuly,averagejuly,rankjuly);
       }
     );
   });
 }
 window.onload = selectAllData;
 var studentN0;
+var studentN0Pop;
+
 var stdList = [];
+var stdListPop = [];
 function addItemsToTable(name,id,sex,grade,speaking,writing,listening,
   reading,average,rank,speakingNov,writingNov,listeningNov,
   readingNov,averageNov,rankNOv,speakingDec,writingDec,listeningDec,
@@ -429,7 +449,7 @@ function addItemsToTable(name,id,sex,grade,speaking,writing,listening,
   my2SeRa,my2SeRme,my1SaY,my2SaY,myAaY,myKy,myMy,myOy,myKh,
   speakingjuly,writingjuly,listeningjuly,
   readingjuly,averagejuly,rankjuly){
-  var tbody = document.getElementById('tbody1');
+  var tbody = document.getElementById('tbody21');
   var trow = document.createElement('tr');
   var td0 = document.createElement('td');
   var td1 = document.createElement('td');
@@ -437,7 +457,7 @@ function addItemsToTable(name,id,sex,grade,speaking,writing,listening,
   var td3 = document.createElement('td');
   var td4 = document.createElement('td');
   var td5 = document.createElement('td');
-
+  
 
 
 
@@ -464,8 +484,6 @@ function addItemsToTable(name,id,sex,grade,speaking,writing,listening,
   td5.innerHTML = grade;
 
 
-
-
   trow.appendChild(td0);
   trow.appendChild(td1);
   trow.appendChild(td2);
@@ -475,27 +493,56 @@ function addItemsToTable(name,id,sex,grade,speaking,writing,listening,
 
   td1.innerHTML = `<button type="button" class="button-6" role="button" data-toggle="modal" data-target="#exampleModal" onclick="Fillbox(${studentN0})">${name}</button>`;
   td2.innerHTML = `<button type="button" class="button-6" role="button" data-toggle="modal" data-target="#exampleModal" onclick="Fillbox(${studentN0})">${myKh}</button>`;
+  tbody.appendChild(trow);
+}
+function addItemsToTablePop(name,id,sex,grade,speaking,writing,listening,
+  reading,average,rank,speakingNov,writingNov,listeningNov,
+  readingNov,averageNov,rankNOv,speakingDec,writingDec,listeningDec,
+  readingDec,averageDec,rankDec,speakingJan,writingJan,listeningJan,
+  readingJan,averageJan,rankJan,speakingfeb,writingfeb,
+  listeningfeb,readingfeb,averagefeb,rankfeb,myNov,myDec,myJan,myFeb,
+  my1Score4,my1Se,my1Sa,my1SR,my1SM,my1SeR,my1MonR,my1SaR,
+  my1SeRa,my1SeRme,speakingmar,writingmar,listeningmar,
+  readingmar,averagemar,rankmar,speakingma,writingma,listeningma,
+  readingma,averagema,rankma,speakingjun,writingjun,listeningjun,
+  readingjun,averagejun,rankjun,myMar,myMay,myJune,myJuly,my2Score4,
+  my2Se,my2Sa,my2SR,my2SM,my2SeR,my2MonR,my2SaR,
+  my2SeRa,my2SeRme,my1SaY,my2SaY,myAaY,myKy,myMy,myOy,myKh,
+  speakingjuly,writingjuly,listeningjuly,
+  readingjuly,averagejuly,rankjuly){
+  var tbody = document.getElementById('tbody1');
+  var trow = document.createElement('tr');
+  var td0 = document.createElement('td');
+  var td1 = document.createElement('td');
+  
 
+  stdListPop.push([name,id,sex,grade,speaking,writing,listening,
+    reading,average,rank,speakingNov,writingNov,listeningNov,
+    readingNov,averageNov,rankNOv,speakingDec,writingDec,listeningDec,
+    readingDec,averageDec,rankDec,speakingJan,writingJan,listeningJan,
+    readingJan,averageJan,rankJan,speakingfeb,writingfeb,
+    listeningfeb,readingfeb,averagefeb,rankfeb,myNov,myDec,myJan,myFeb,
+    my1Score4,my1Se,my1Sa,my1SR,my1SM,my1SeR,my1MonR,my1SaR,
+    my1SeRa,my1SeRme,speakingmar,writingmar,listeningmar,
+    readingmar,averagemar,rankmar,speakingma,writingma,listeningma,
+    readingma,averagema,rankma,speakingjun,writingjun,listeningjun,
+    readingjun,averagejun,rankjun,myMar,myMay,myJune,myJuly,my2Score4,
+    my2Se,my2Sa,my2SR,my2SM,my2SeR,my2MonR,my2SaR,
+    my2SeRa,my2SeRme,my1SaY,my2SaY,myAaY,myKy,myMy,myOy,myKh,
+    speakingjuly,writingjuly,listeningjuly,
+    readingjuly,averagejuly,rankjuly]);
+  td0.innerHTML = ++studentN0Pop;
+  td1.innerHTML = myKh;
+
+
+
+  trow.appendChild(td0);
+  trow.appendChild(td1);
+
+  td1.innerHTML = `<button type="button" class="button-6" role="button" onclick="Fillbox(${studentN0Pop})">${myKh}</button>`;
   tbody.appendChild(trow);
 }
 
-$(function(){
-  $('input[name="rad"]').click(function(){
-      var $radio = $(this);
-      
-      // if this was previously checked
-      if ($radio.data('waschecked') == true)
-      {
-          $radio.prop('checked', false);
-          $radio.data('waschecked', false);
-      }
-      else
-          $radio.data('waschecked', true);
-      
-      // remove was checked from other radios
-      $radio.siblings('input[name="rad"]').data('waschecked', false);
-  });
-});
 
 var Mname = document.getElementById('myName');
 var Mid = document.getElementById('myID');
@@ -971,8 +1018,8 @@ function NewBox(){
   Mrankjuly.value =  "";
 }
 
-function AddStd(){
-  firebase.database().ref("2aAllData/"+Mid.value).set(
+function AddStd(e){
+  firebase.database().ref("5aAllData/"+Mid.value).set(
     {
       name: Mname.value,
       id: Mid.value,
@@ -1088,11 +1135,15 @@ function AddStd(){
   }, 
   )
   selectAllData();
-  window.location.reload();
+  // window.location.reload();
+  e.preventDefault();
+
 
 }
-function UpStd(){
-  firebase.database().ref("2aAllData/"+Mid.value).update(
+function UpStd(e){
+  e.preventDefault();
+
+  firebase.database().ref("5aAllData/"+Mid.value).update(
     {
       name: Mname.value,
       sex: Msex.value,
@@ -1206,22 +1257,23 @@ function UpStd(){
     }, 
   )
   selectAllData();
-  window.location.reload();
+  // window.location.reload();
 
 }
-function DelStd(){
-  firebase.database().ref("2aAllData/"+Mid.value).remove().then(
+function DelStd(e){
+  firebase.database().ref("5aAllData/"+Mid.value).remove().then(
     function(){
       selectAllData();
-      window.location.reload();
-   
+      // window.location.reload();
+      e.preventDefault();
+
     }
   )
 }
 function DelStdAll(){
-  firebase.database().ref("2aAllData").remove();
+  firebase.database().ref("5aAllData").remove();
 
-      window.location.reload();
+      // window.location.reload();
 }
 
 //Divid score tables
@@ -1241,12 +1293,11 @@ function adder() {
 function divid(){
   var num5 = parseFloat(document.getElementById('myScoreoct').value);
   var score = num5;
-  var get = score / 4;
+  var get = score / 3;
   get = parseFloat(get).toFixed(2);
   document.getElementById("myWoct").value = get;
   document.getElementById("myLoct").value = get;
   document.getElementById("myRoct").value = get;
-  document.getElementById("mySoct").value = get;
 }
 
 //Novmber
@@ -1265,12 +1316,11 @@ function adder1() {
 function divid1(){
   var num6 = parseFloat(document.getElementById('myScorenov').value);
   var score1 = num6;
-  var get2 = score1 / 4;
+  var get2 = score1 / 3;
   get2 = parseFloat(get2).toFixed(2);
   document.getElementById("myWnov").value = get2;
   document.getElementById("myLnov").value = get2;
   document.getElementById("myRnov").value = get2;
-  document.getElementById("mySnov").value = get2;
 
 }
 //December
@@ -1289,13 +1339,12 @@ function adder2() {
 function divid2(){
   var num6 = parseFloat(document.getElementById('myScoredec').value);
   var score1 = num6;
-  var get2 = score1 / 4;
+  var get2 = score1 / 3;
   get2 = parseFloat(get2).toFixed(2);
 
   document.getElementById("myWdec").value = get2;
   document.getElementById("myLdec").value = get2;
   document.getElementById("myRdec").value = get2;
-  document.getElementById("mySdec").value = get2;
 
 }
 //January
@@ -1314,13 +1363,12 @@ function adder3() {
 function divid3(){
   var num6 = parseFloat(document.getElementById('myScorejan').value);
   var score1 = num6;
-  var get2 = score1 / 4;
+  var get2 = score1 / 3;
   get2 = parseFloat(get2).toFixed(2);
 
   document.getElementById("myWjan").value = get2;
   document.getElementById("myLjan").value = get2;
   document.getElementById("myRjan").value = get2;
-  document.getElementById("mySjan").value = get2;
 
 }
 //February
@@ -1339,13 +1387,12 @@ function adder4() {
 function divid4(){
   var num6 = parseFloat(document.getElementById('myScorefeb').value);
   var score1 = num6;
-  var get2 = score1 / 4;
+  var get2 = score1 / 3;
   get2 = parseFloat(get2).toFixed(2);
 
   document.getElementById("myWfeb").value = get2;
   document.getElementById("myLfeb").value = get2;
   document.getElementById("myRfeb").value = get2;
-  document.getElementById("mySfeb").value = get2;
 
 }
 //1st 4 months
@@ -1397,12 +1444,11 @@ function adder8() {
 function divid8(){
   var num6 = parseFloat(document.getElementById('myScoremar').value);
   var score1 = num6;
-  var get2 = score1 / 4;
+  var get2 = score1 / 3;
   get2 = parseFloat(get2).toFixed(2);
   document.getElementById("myWmar").value = get2;
   document.getElementById("myLmar").value = get2;
   document.getElementById("myRmar").value = get2;
-  document.getElementById("mySmar").value = get2;
 
 }
 //April-May
@@ -1421,12 +1467,11 @@ function adder9() {
 function divid9(){
   var num6 = parseFloat(document.getElementById('myScorema').value);
   var score1 = num6;
-  var get2 = score1 / 4;
+  var get2 = score1 / 3;
   get2 = parseFloat(get2).toFixed(2);
   document.getElementById("myWma").value = get2;
   document.getElementById("myLma").value = get2;
   document.getElementById("myRma").value = get2;
-  document.getElementById("mySma").value = get2;
 
 }
 //June
@@ -1445,12 +1490,11 @@ function adder10() {
 function divid10(){
   var num6 = parseFloat(document.getElementById('myScorejun').value);
   var score1 = num6;
-  var get2 = score1 / 4;
+  var get2 = score1 / 3;
   get2 = parseFloat(get2).toFixed(2);
   document.getElementById("myWjun").value = get2;
   document.getElementById("myLjun").value = get2;
   document.getElementById("myRjun").value = get2;
-  document.getElementById("mySjun").value = get2;
 
 }
 //July
@@ -1469,12 +1513,11 @@ function adder16() {
 function divid16(){
   var num6 = parseFloat(document.getElementById('myScorejuly').value);
   var score1 = num6;
-  var get2 = score1 / 4;
+  var get2 = score1 / 3;
   get2 = parseFloat(get2).toFixed(2);
   document.getElementById("myWjuly").value = get2;
   document.getElementById("myLjuly").value = get2;
   document.getElementById("myRjuly").value = get2;
-  document.getElementById("mySjuly").value = get2;
 
 }
 
@@ -1580,7 +1623,7 @@ function ExportToExcel(type, fn, dl) {
   var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
   return dl ?
     XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
-    XLSX.writeFile(wb, fn || ('Student Report Grade 2A.' + (type || 'xlsx')));
+    XLSX.writeFile(wb, fn || ('Student Report Grade 5A.' + (type || 'xlsx')));
 }
 
 //Sorting without change N0
@@ -1631,3 +1674,11 @@ function myPicAdd(){
   var getLink = inputLink.value;
   img.src = getLink;
 }
+// On Enter keypress
+$('input').keydown(function (event) {
+  if (event.which === 13) {
+    UpStd();
+    event.preventDefault();
+    return false;
+  }
+});
