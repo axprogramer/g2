@@ -10,7 +10,7 @@ const firebaseConfig = {
   
   firebase.initializeApp(firebaseConfig);
 
-  var my5aAll = firebase.database().ref('5aAllData');
+  var my5aAll = firebase.database().ref('2aAllData');
   function submitForm(e){
     e.preventDefault();
     var name = getElementVal('myName');
@@ -280,7 +280,7 @@ function selectAllData(){
   studentN0=0;
   studentN0Pop = 0;
 
-  firebase.database().ref('5aAllData').once('value',
+  firebase.database().ref('2aAllData').once('value',
   function(AllRecords){
     AllRecords.forEach(
       function(CurrentRecord){
@@ -1019,7 +1019,7 @@ function NewBox(){
 }
 
 function AddStd(e){
-  firebase.database().ref("5aAllData/"+Mid.value).set(
+  firebase.database().ref("2aAllData/"+Mid.value).set(
     {
       name: Mname.value,
       id: Mid.value,
@@ -1143,7 +1143,7 @@ function AddStd(e){
 function UpStd(e){
   e.preventDefault();
 
-  firebase.database().ref("5aAllData/"+Mid.value).update(
+  firebase.database().ref("2aAllData/"+Mid.value).update(
     {
       name: Mname.value,
       sex: Msex.value,
@@ -1261,7 +1261,7 @@ function UpStd(e){
 
 }
 function DelStd(e){
-  firebase.database().ref("5aAllData/"+Mid.value).remove().then(
+  firebase.database().ref("2aAllData/"+Mid.value).remove().then(
     function(){
       selectAllData();
       // window.location.reload();
@@ -1271,7 +1271,7 @@ function DelStd(e){
   )
 }
 function DelStdAll(){
-  firebase.database().ref("5aAllData").remove();
+  firebase.database().ref("2aAllData").remove();
 
       // window.location.reload();
 }
